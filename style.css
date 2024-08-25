@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
+}
+:root {
+    --main-color: #231f20;
+    --main-text-color: #fffcf2;
+
+    --axis-height: 600px;
+
+    --event-height: calc(var(--axis-height) / 6);
+    --event-width: 300px;
+
+    --duration-scale: calc(var(--event-height) - 5px);
+}
+
+
+/* MAIN */
+body {
+    color: var(--main-text-color);
+    background-color: var(--main-color);
+}
+main .about {
+    min-width: calc(var(--event-width) * 2);
+    padding: 25px;
+}
+main .timeline {
+    position: relative;
+    min-height: var(--axis-height);
+    min-width: calc(var(--event-width) * 2);
+}
+
+
+
+/* ABOUT */
+.about .container {
+    transform: translate(-50%, 0%);
+    position: relative;
+    left: 50%;
+    width: calc(var(--event-width) + 100px);
+}
+.about .name {
+    font-size: 3rem;
+}
+.about img {
+    height: 20px;
+    padding-right: 5px;
+}
+.about a {
+    color: var(--main-text-color);
+    text-decoration: none;
+}
+.about a:hover {
+    color: var(--main-text-color);
+    letter-spacing: 1px;
+    transition: 0.2s ease-in-out;
+}
+.about a:visited {
+    color: var(--main-text-color);
+    text-decoration: none;
+}
+
+
+/* TIMELINE */
+.axis {
+    border-right: 3px solid var(--main-text-color);
+    border-radius: 10px;
+    position: absolute;
+    height: var(--axis-height);
+    left: 50%;
+    z-index: 1;
+}
+.now {
+    padding: 10px;
+    text-align: center;
+}
+.begin {
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+/* EVENTS */
+.event {
+    padding: 0px 20px;
+    position: absolute;
+    width: var(--event-width);
+    z-index: 2;
+}
+.event label {
+    opacity: 0.7;
+}
+.event label:hover {
+    letter-spacing: 1px;
+    transition: 0.2s ease-in-out;
+}
+.event input[type="radio"] {
+    width: 0;
+    opacity: 0;
+    position: fixed;
+}
+.event input[type="radio"]:checked + label {
+    opacity: 1;
+    letter-spacing: 1px;
+    transition: 0.2s ease-in-out;
+}
+.experience .event {
+    text-align: right;
+    right: 50%;
+}
+.education .event {
+    left: 50%;
+}
+.boxbyte .event {
+    bottom: calc(var(--event-height) * 5);
+}
+.sdfx .event {
+    bottom: calc(var(--event-height) * 4);
+}
+.ta .event {
+    bottom: calc(var(--event-height) * 1);
+}
+.csuf .event {
+    bottom: calc(var(--event-height) * 5);
+}
+.sbcc .event {
+    bottom: 0px;
+}
+
+
+
+/* DURATION */
+.duration {
+    border-right: 2px solid var(--main-text-color);
+    border-radius: 10px;
+    opacity: 0.5;
+    position: absolute;
+    z-index: 1;
+}
+.experience .duration {
+    left: calc(50% - 10px);
+}
+.education .duration {
+    left: calc(50% + 10px);
+}
+.boxbyte .duration {
+    bottom: calc(var(--event-height) * 5);
+    height: calc(var(--duration-scale) * 1);
+}
+.sdfx .duration {
+    bottom: calc(var(--event-height) * 4);
+    height: calc(var(--duration-scale) * 1);
+}
+.ta .duration {
+    bottom: calc(var(--event-height) * 1);
+    height: calc(var(--duration-scale) * 3);
+}
+.csuf .duration {
+    bottom: calc(var(--event-height) * 5);
+    height: calc(var(--duration-scale) * 1);
+}
+.sbcc .duration {
+    bottom: 0px;
+    height: calc(var(--duration-scale) * 3);
+}
+
+
+
+/* DETAILS */
+.details {
+    border: 1px solid var(--main-text-color);
+    background-color: var(--main-color);
+    position: absolute;
+    visibility: hidden;
+    transform: translate(-50%, 0%);
+    top: 0%;
+    left: 50%;
+    width: calc(var(--event-width) * 2);
+    padding: 25px;
+    z-index: 3;
+}
+.close {
+    color: var(--main-text-color);
+    background-color: rgba(0, 0, 0, 0);
+    transform: translate(-50%, 0%);
+    left: calc(50% + var(--event-width));
+    top: 0px;
+    position: absolute;
+    border: none;
+    font-size: x-large;
+    padding: 5px;
+    opacity: 0.5;
+    visibility: hidden;
+    z-index: 4;
+}
+.close-details:hover {
+    opacity: 1;
+}
+li {
+    padding: 10px 0px;
+}
+
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 700px) {
+    body {
+        font-size: small;
+    }
+    :root {
+        --event-width: 150px;
+        --duration-scale: calc(var(--event-height) - 5px);
+    }
+}
